@@ -101,17 +101,12 @@ html, body {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-image: url('./assets/background.jpg');
+  background: linear-gradient(135deg, #101827 0%, #1f293d 50%, #0f172a 100%);
+  background-image: url('./assets/bg_main_totem.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity 0.5s ease-in-out;
-}
-
-/* Se a imagem de fundo estiver ausente, mostra este belo degradê decorativo */
-.fundo-cenario:only-child,
-.fundo-cenario:not([style*="background-image"]) {
-  background: linear-gradient(135deg, #101827 0%, #1f293d 50%, #0f172a 100%);
 }
 
 /* Backdrop escurecido ao abrir o painel lateral para aumentar o foco e imersão */
@@ -174,6 +169,11 @@ html, body {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.logo-img {
+  height: 38px;
+  display: block;
 }
 
 /* Símbolo do Coração Sesi em SVG integrado */
@@ -249,7 +249,7 @@ html, body {
   left: 0;
   width: 100%;
   padding: 0 60px;
-  text-align: left;
+  text-align: center;
   z-index: 10;
   pointer-events: none; /* Deixa o toque passar para os hotspots */
 }
@@ -650,3 +650,341 @@ html, body {
   color: var(--color-green-hover) !important;
   font-weight: 800;
 }
+
+/* ==========================================================================
+   CONTEÚDO DINÂMICO: PANEL IMAGES & INITIATIVES
+   ========================================================================== */
+.panel-img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.initiative-card {
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.initiative-card:active {
+  transform: scale(0.98);
+}
+
+.initiative-title {
+  font-family: var(--font-title);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.initiative-desc {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Modificadores de Cores para os Cards de Iniciativa */
+.card-green {
+  background-color: #f2faf4;
+  border: 1.5px solid #d0f0d9;
+}
+.card-green .initiative-title {
+  color: #007934; /* Verde Sesi */
+}
+
+.card-yellow {
+  background-color: #fdfaf2;
+  border: 1.5px solid #f9e9cf;
+}
+.card-yellow .initiative-title {
+  color: #b45309; /* Amarelo Escuro */
+}
+
+.card-blue {
+  background-color: #f2fafd;
+  border: 1.5px solid #d2f0fb;
+}
+.card-blue .initiative-title {
+  color: #0284c7; /* Azul Sesi */
+}
+
+.card-pink {
+  background-color: #fff1f2;
+  border: 1.5px solid #ffe4e6;
+}
+.card-pink .initiative-title {
+  color: #db2777; /* Rosa do Sódio */
+}
+
+/* ==========================================================================
+   CONTEÚDO DINÂMICO: ACCORDIONS PARA RESTAURANTE & BUFFET
+   ========================================================================== */
+.accordion-container {
+  margin-top: 24px;
+}
+
+.accordion-item {
+  background-color: var(--color-white);
+  border: 1.5px solid rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-item.active {
+  border-color: var(--color-green-hover);
+  box-shadow: 0 6px 18px rgba(0, 121, 52, 0.06);
+}
+
+.accordion-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: var(--color-white);
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-header:active {
+  background-color: var(--neutral-bg-light);
+}
+
+.accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.accordion-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.accordion-title {
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.accordion-arrow {
+  width: 22px;
+  height: 22px;
+  color: var(--text-secondary);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.accordion-item.active .accordion-arrow {
+  transform: rotate(180deg);
+  color: var(--color-green-hover);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+  padding: 0 20px;
+}
+
+.accordion-item.active .accordion-content {
+  padding: 0 20px 20px 20px;
+}
+
+.accordion-text {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  padding-top: 14px;
+}
+
+.images-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.images-row .panel-img {
+  width: calc(50% - 8px);
+  flex: 1 1 0%;
+  min-width: 0;
+  margin-bottom: 0;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   INTERACTIVE FLIP CARDS & DECORATIONS
+   ========================================================================== */
+.flip-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+}
+
+.flip-card {
+  position: relative;
+  background-color: transparent;
+  width: 100%;
+  height: 240px;
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1;
+}
+
+.flip-card.flipped {
+  z-index: 10;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front {
+  background-color: var(--color-white);
+  color: var(--text-primary);
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+}
+
+.flip-card-back {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  border: 1.5px solid var(--color-blue);
+}
+
+.flip-card-front h4 {
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.flip-card-back p {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.flip-card-back h4 {
+  font-family: var(--font-title);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 4px;
+  width: 100%;
+}
+
+.tap-indicator {
+  font-size: 11px;
+  color: var(--color-blue);
+  font-weight: 600;
+  opacity: 0.7;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tap-indicator svg {
+  width: 12px;
+  height: 12px;
+}
+
+.secao-destaque {
+  background-color: #f8fafc;
+  border-radius: 20px;
+  padding: 24px;
+  margin-top: 30px;
+  margin-bottom: 24px;
+  border: 1.5px solid rgba(0, 0, 0, 0.03);
+}
+
+.secao-titulo-destaque {
+  font-family: var(--font-title);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-blue);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.compromisso-list {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+}
+
+.compromisso-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.compromisso-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-blue);
+  margin-top: 2px;
+}
+
+
+
