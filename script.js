@@ -38,6 +38,21 @@ const TEMAS_PLACEHOLDER = {
           <span class="impacto-rotulo">unidades transportadas</span>
         </div>
       </div>
+
+      <!-- Seção Fale Conosco -->
+      <div class="secao-destaque" style="border-left: 6px solid var(--color-green-hover); margin-top: 40px; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 24px; background: rgba(16, 185, 129, 0.04); border-radius: 16px;">
+        <h3 style="font-family: var(--font-title); font-size: 20px; font-weight: 800; color: var(--color-green-hover); margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 0.5px;">
+          Fale conosco:
+        </h3>
+        
+        <div style="background: white; padding: 12px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: inline-block; margin-bottom: 16px; border: 1.5px solid rgba(0,0,0,0.05);">
+          <img src="./assets/qr-code.jpeg" alt="QR Code alimentaSesi" style="width: 160px; height: 160px; display: block; object-fit: contain;" onerror="this.style.display='none';" />
+        </div>
+
+        <h3 style="font-family: var(--font-title); font-size: 18px; font-weight: 800; color: var(--color-green-hover); margin: 0; word-break: break-all;">
+          www.alimentasesi.com.br
+        </h3>
+      </div>
     `
   },
   "educacao": {

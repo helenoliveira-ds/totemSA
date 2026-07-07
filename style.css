@@ -146,22 +146,32 @@ html, body {
 }
 
 /* Badge Interativo da Marca no Topo (Abre Impacto em Números) */
+.header-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  pointer-events: auto; /* Ativa detecção de toque individualmente */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 96;
+}
+
+.header-badge-container:active {
+  transform: scale(0.95);
+}
+
 .header-badge-trigger {
   background: var(--color-white);
   border-radius: 50px;
   padding: 16px 36px; /* Aumentado para área de toque muito mais generosa e acessível */
   display: flex;
   align-items: center;
-  gap: 16px;
   box-shadow: var(--badge-shadow);
-  cursor: pointer;
   border: 2px solid transparent;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: auto; /* Ativa detecção de toque individualmente */
 }
 
-.header-badge-trigger:active {
-  transform: scale(0.95);
+.header-badge-container:active .header-badge-trigger {
   border-color: var(--color-green);
 }
 
@@ -289,6 +299,8 @@ html, body {
 /* Inversão do layout para hotspots do lado direito, evitando transbordamentos */
 .hotspot-reverse {
   flex-direction: row-reverse;
+  transform: translate(calc(-100% + 22px), -20px);
+  animation-name: float-soft-reverse;
 }
 
 /* Estilos individuais de animação flutuante dessincronizados para naturalidade */
@@ -572,6 +584,16 @@ html, body {
   }
   100% {
     transform: translate(-20px, -30px);
+  }
+}
+
+/* Animação Flutuante dos Hotspots Reversos no Cenário */
+@keyframes float-soft-reverse {
+  0% {
+    transform: translate(calc(-100% + 22px), -20px);
+  }
+  100% {
+    transform: translate(calc(-100% + 22px), -30px);
   }
 }
 
